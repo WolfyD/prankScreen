@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BUTTON_Win95" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\button_win95.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cursor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cursor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="INSTALL_W95_BG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\install_w95_bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install02.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install03.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install04.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install05.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install06.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install07.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install08" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install08.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install09" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install09.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="w95_Install12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\w95_install12.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95Banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95BSOD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95bsod.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner12.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win95_Banner9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w95install\win95_banner9.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win98_Setup_Stencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\w98install\win98_setup_stencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="win98Slides" xml:space="preserve">
+    <value>[T]Welcome to Microsoft Windows 98[/T]Please sit back and relax while Windows 98 installs on your computer.[RN]During this automated installation process, you'll learn about some of the enhancements to Windows 98 and a few of its exciting new features. After Windows 98 is installed, you are invited to take the Discover Windows 98 tours to learn more.
+--LINE--
+[T]Windows Just Got Better[/T] 
+Windows 98 helps you get the most out of your computer by making it easier to use, more reliable, faster, and more entertaining. 
+--LINE--
+[T]More Innovative [/T]This new release includes hundreds of enhancements and new features based on customer requests and product support experiences.[RN]Like its predecessor, Windows 98 supports new, cutting-edge technologies, while at the same time providing the best support for your current hardware and programs. 
+--LINE--
+[T]Easier to Use [/T]Your computer and the Internet are easier to use than ever before. Simplified navigation features like the Back, Forward, and Favorites buttons make it easier to move among files, programs, and Internet sites.[RN]Windows 98 also makes it easier for you to select and open files and programs. You can select a file simply by moving the mouse pointer over it, and you can open a file or program with a single click. 
+--LINE--
+[T]Easier to Get Help [/T]If you have questions about using Windows 98, it's easy to get answers.  Windows 98 has a built-in Help system that is informative and easy to use.[RN]If you have access to the Internet, you can visit the new Windows Update site, a Web-based extension of Windows 98 that includes the latest product assistance information. 
+--LINE--
+[T]Connects You to the Web [/T]If you want to use the Internet, it’s never been easier or faster.[RN]The Internet Connection wizard helps you configure your system and sign up with an Internet service provider of your choice.[RN]For fast Web access, link several modems or quickly set up your ISDN connection by using the new wizard. 
+--LINE--
+[T]Brings the Web to Your Desktop [/T]The integration of Windows 98 and Internet Explorer gives you the most rewarding way to use the Web. [RN]New Explorer Bars, like Search, History, and Favorites, make it easier to find information.[RN]You can schedule automatic content delivery to your desktop. You can customize your Windows desktop by using a Web page as a background.  You can easily create your own Web pages by using FrontPage Express. 
+--LINE--
+[T]Enhances Communication [/T]Windows 98 gives you exciting tools that help you communicate and collaborate with family and colleagues worldwide.[RN]You can e-mail family, meet face-to-face online with business associates, or watch a live presentation using the Internet. 
+--LINE--
+[T]New Communication Tools [/T]Using Outlook Express, not only can you send and receive e-mail messages and participate in newsgroups, you can also manage multiple e-mail accounts.[RN]Using NetShow, you can experience events as they're happening because your computer can receive live or streaming multimedia from the Internet.[RN]You can hold online videoconferences, chat, and share resources by using NetMeeting. 
+--LINE--
+[T]Faster Performance [/T]Windows 98 helps you get top-notch performance without adding new hardware. Programs start and run faster.[RN]The Maintenance wizard suggests ways to improve your computer's performance and schedules regular disk maintenance.[RN]Many new computers start instantly using the OnNow power management feature. 
+--LINE--
+[T]More Storage Space [/T]Gain extra disk space by converting your hard disk to the FAT32 file system.[RN]This file system also supports large capacity drives.
+--LINE--
+[T]Increased Dependability [/T]With hundreds of enhancements and a new suite of wizards and smart tools, Windows 98 helps you keep your computer running smoothly.[RN]The new Registry Checker monitors registry files and automatically repairs and restores the files as necessary.[RN]Windows 98 is year 2000 ready. 
+--LINE--
+[T]Increased Reliability [/T]System File Checker automatically locates modified or corrupted system files and then repairs and restores them.[RN]If your system is shut down improperly or there is a hard disk error, ScanDisk runs automatically to ensure that your hard disk is in good working condition. 
+--LINE--
+[T]More Entertaining [/T]By converging real-time 2-D and 3-D graphics, digital video and audio, and the Internet, Windows 98 redefines the role of the computer as an entertainment platform.[RN]With support for DVD, digital audio, and processors with MMX™ technology, you can watch full-motion, full-screen multimedia titles on your computer. With support for multiple monitors, you can extend your Windows desktop onto several monitors.[RN]                       * MMX is a trademark of Intel Corporation 
+--LINE--
+[T]Better Games [/T]Games are more engaging and exciting with DirectX 5 capabilities, including digital audio, support for force feedback joysticks, and enhanced graphics and 3D.[RN]DirectX 5 provides the fastest graphics and video performance for computer games. 
+--LINE--
+[T]Supports New Hardware [/T]Windows 98 supports more than a thousand new printers, modems, monitors, network adapters, and other hardware devices.[RN]Support for the new Universal Serial Bus (USB) provides a universal connection for many of the most popular devices like scanners and cameras. You simply plug in a USB device, and your system reconfigures itself. You don't even need to restart your computer. 
+--LINE--
+[T]More Accessible [/T]Windows 98 provides new accessibility features that make it easier for people to interact with computers.[RN]Microsoft Magnifier enlarges a portion of your screen up to nine times its normal size. You can invert colors and use a high-contrast color scheme. 
+--LINE--
+[T]More Customizable [/T]The new Accessibility wizard helps you customize your computer screen, keyboard, and mouse to fit your needs.[RN]To make items easier to see, you can increase the contrast, switch to a larger text size, and have your mouse pointer leave a trail. You can customize keyboard options and replace computer sounds with visual alerts.
+--LINE--
+[T]Check Out Windows Update [/T]Stay up-to-date with this Web-based extension of Windows 98.[RN]The Update wizard reviews your system, recommends the updates you need, and can install the updates you select.[RN]Using Windows Update, you can quickly find answers to your questions about Windows 98 and get access to online product assistance. 
+--LINE--
+[T]Thank You [/T]Please register your copy of Windows 98.[RN]The Microsoft Windows 98 Team</value>
+    <comment>All text Slides to the Win98 Install</comment>
+  </data>
+  <data name="win98Cursor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\win98Cursor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="google" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\firefox\google.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ffhsw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ffhsw.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blurryCursor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\blurrycursor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>
