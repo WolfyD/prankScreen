@@ -23,6 +23,7 @@ namespace prankScreen
 
         private void F_secondaryScreen_Load(object sender, EventArgs e)
         {
+			Cursor.Dispose();
             BackColor = bgColor;
         }
     }

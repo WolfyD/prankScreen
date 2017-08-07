@@ -14,7 +14,8 @@ namespace prankScreen
         Screen_Unresponsive,	//27
         Screen_Pixelated,		//28
         Screen_Black,			//36
-		Firefox_Google			//37
-        
-    }
+		Firefox_Google,			//37
+		Firefox_Porn			//38
+
+	}
 }

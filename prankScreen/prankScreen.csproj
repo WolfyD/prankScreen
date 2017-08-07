@@ -52,6 +52,12 @@
     <Compile Include="f_ScreenForm.Designer.cs">
       <DependentUpon>f_ScreenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\f_Firefox_Pron.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\f_Firefox_Pron.Designer.cs">
+      <DependentUpon>f_Firefox_Pron.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\f_secondaryScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,8 @@
     <None Include="Resources\ffhsw.jpg" />
     <Content Include="Resources\blurryCursor.png" />
     <Content Include="Resources\firefox\google.jpg" />
+    <None Include="Resources\pr0n2.png" />
+    <None Include="Resources\pr0n.jpg" />
     <Content Include="Resources\w98Install\win98_Setup_Stencil.png" />
     <None Include="Resources\win98Cursor.png" />
     <None Include="Resources\cursor.png" />

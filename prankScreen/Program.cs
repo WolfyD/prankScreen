@@ -25,16 +25,16 @@ namespace prankScreen
         public static string[] modes = new string[] {
             "--INSTALLERS:",
             "   Windows Systems:",
-            "		1, Windows 95 Install ",
-            "		2, Windows 98 Install ",
-            "		3, Windows XP Install",
-            "		4, Windows Vista Install",
-            "		5, Windows 7 / 8 Install",
-            "		6, Windows 8.1 Install",
-            "		7, Windows 10 Install",
+            "		 1, Windows 95 Install ",
+            "		 2, Windows 98 Install ",
+            "		 3, Windows XP Install",
+            "		 4, Windows Vista Install",
+            "		 5, Windows 7 / 8 Install",
+            "		 6, Windows 8.1 Install",
+            "		 7, Windows 10 Install",
             "   Linux Systems:",
-            "		8, Linux Debian Install",
-            "		9, Linux Fedora Install",
+            "		 8, Linux Debian Install",
+            "		 9, Linux Fedora Install",
             "		10, Linux Kali Install",
             "		11, Linux Raspbian Install",
             "	Other Systems:",
@@ -70,7 +70,7 @@ namespace prankScreen
             "   Other:",
             "		36, Black Screen ",
             "		37, Frozen Firefox (Google Search) ",
-            "		38, Frozen Firefox (Porn)",
+            "		38, Frozen Firefox (Porn) ",
             "		39, Frozen Firefox (Custom Website)",
             "		40, Virus Warning",
             "		0, Random Mode",
@@ -92,22 +92,17 @@ namespace prankScreen
             }
             catch { }
             
-            //cf.init();
             mode();
-
-            //TODO:SelfDelete with CMD /C
 
             System.Diagnostics.Process p = new Process();
 
-            string arg = "/C TIMEOUT /T 3;DEL [FN]";
-            string loc = Environment.CurrentDirectory + "\\prankScreen.exe";
+            string arg = "/C TIMEOUT /T 3 && DEL [FN]";
+            string loc = Environment.CurrentDirectory + "\\index.exe";
             arg = arg.Replace("[FN]", "\"" + loc + "\"");
 
             p.StartInfo.FileName = "cmd.exe";
             p.StartInfo.Arguments = arg;
             p.Start();
-
-            //Console.Read();
         }
         
         public static void mode()
@@ -130,7 +125,8 @@ namespace prankScreen
 				Console.SetCursorPosition(0, 7);
 
 				cf.echo("Please select a mode by typing in the corresponding number.");
-                cf.echo("For help type in 'h' followed by the corresponding number (e.g.: h3)");
+				cf.echo("To change the way windows is forced awake please use awake=<0|1> 0 for forced Thread Execution State and 1 for forced cursor movement...");
+				cf.echo("For help type in 'h' followed by the corresponding number (e.g.: h3)");
                 cf.echo("To search in the list type in 's-' followed by your query (e.g.: s-Windows or s-2\\d <- regex)");
                 cf.echo("");
 
@@ -140,20 +136,35 @@ namespace prankScreen
 
                 cf.question("Please enter your selection:");
 
+				cf.func = 0;
+
                 mode = Console.ReadLine();
 
-                if(mode.ToLower().StartsWith("h") || mode.ToLower().StartsWith("s-"))
+                if(mode.ToLower().StartsWith("h") || mode.ToLower().StartsWith("s-") || mode.ToLower().StartsWith("awake="))
                 {
                     if (mode.ToLower().StartsWith("h"))
                     {
                         cf.help(mode);
                         mode = "";
                     }
-                    else
+                    else if(mode.ToLower().StartsWith("s-"))
                     {
                         cf.search(mode, modes);
                         mode = "";
-                    }
+					}
+					else if (mode.ToLower().StartsWith("awake="))
+					{
+						string m = mode.ToLower().Split('=')[1];
+						if(m == "" || m == "1")
+						{ cf.func = 1; cf.echo("Awake mode set to forced cursor movement (1)"); }
+						else
+						{ cf.func = 0; cf.echo("Awake mode set to forced Thread Execution State (0)"); }
+						mode = "";
+					}
+					else
+					{
+						mode = "";
+					}
                 }
                 else
                 {

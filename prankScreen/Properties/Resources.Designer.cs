@@ -123,6 +123,26 @@ namespace prankScreen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pr0n {
+            get {
+                object obj = ResourceManager.GetObject("pr0n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pr0n2 {
+            get {
+                object obj = ResourceManager.GetObject("pr0n2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap w95_Install01 {
             get {
                 object obj = ResourceManager.GetObject("w95_Install01", resourceCulture);

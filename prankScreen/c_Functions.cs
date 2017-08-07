@@ -11,6 +11,8 @@ namespace prankScreen
 {
     class c_Functions
     {
+		public int func { get; set; }
+
         public static Dictionary<string, string> helpLST = helpLST = new Dictionary<string, string>() {
               {"1" ,@"Microsoft Windows 95 Installation spoof. 
 Bar fills up on the bottom while the majority of the screen shows slides of information about Win95.
@@ -203,6 +205,8 @@ BSOD if user messes with keys" },
 				fs.parameter = param;
 			}
 
+			
+
             switch (mode)
             {
                 case "1":
@@ -215,10 +219,12 @@ BSOD if user messes with keys" },
 
 				case "27":
 					fs.st = SimpleScreenType.Screen_Unresponsive;
+					fs.multiScreen = true;
 					break;
 
 				case "28":
 					fs.st = SimpleScreenType.Screen_Pixelated;
+					fs.multiScreen = true;
 					break;
 					
 				case "36":
@@ -228,8 +234,13 @@ BSOD if user messes with keys" },
 				case "37":
 					fs.st = SimpleScreenType.Firefox_Google;
 					break;
-            }
 
+				case "38":
+					fs.st = SimpleScreenType.Firefox_Porn;
+					break;
+			}
+
+			fs.func = func;
             fs.evalScreens();
         }
     }

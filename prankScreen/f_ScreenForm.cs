@@ -15,8 +15,23 @@ namespace prankScreen
 {
     public partial class f_ScreenForm : Form
     {
+		System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
 
-        public Rectangle bounds { get; set; }
+		[DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+		static extern EXECUTION_STATE SetThreadExecutionState(EXECUTION_STATE esFlags);
+
+		public enum EXECUTION_STATE : uint
+		{
+			ES_AWAYMODE_REQUIRED = 0x00000040,
+			ES_CONTINUOUS = 0x80000000,
+			ES_DISPLAY_REQUIRED = 0x00000002,
+			ES_SYSTEM_REQUIRED = 0x00000001
+			// Legacy flag, should not be used.
+			// ES_USER_PRESENT = 0x00000004
+		}
+		
+
+		public Rectangle bounds { get; set; }
         public Screen bgScreen { get; set; }
         public float opacity { get; set; }
 		public string parameter { get; set; }
@@ -32,33 +47,65 @@ namespace prankScreen
             Load += F_ScreenForm_Load;
         }
 
-        /*
+		/*
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
         }
         */
 
+		public int stayawakeMode { get; set; }
+
         private void F_ScreenForm_Load(object sender, EventArgs e)
         {
+			if (stayawakeMode == 0)
+			{
+				SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_SYSTEM_REQUIRED | EXECUTION_STATE.ES_AWAYMODE_REQUIRED);
+			}
+			else
+			{
+				t.Interval = 1000;
+				t.Tick += T_Tick;
+				t.Start();
+			}
 
-            maxkeypress = new Random().Next(10, 50);
+			maxkeypress = new Random().Next(10, 50);
 
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.ControlBox = false;
             this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
-            this.Select();
-            this.Focus();
+			this.TopMost = true;
+			this.Select();
+			this.Focus();
+			this.TopMost = true;
+			this.Select();
+			this.Focus();
 
-            //TODO: Turn Back On
-            ProcessModule objCurrentModule = Process.GetCurrentProcess().MainModule;
+			//TODO: Turn Back On
+			ProcessModule objCurrentModule = Process.GetCurrentProcess().MainModule;
             objKeyboardProcess = new LowLevelKeyboardProc(captureKey);
             ptrHook = SetWindowsHookEx(13, objKeyboardProcess, GetModuleHandle(objCurrentModule.ModuleName), 0);
         }
 
-        public virtual void doBSOD()
+		int tickcount = 0;
+
+		private void T_Tick(object sender, EventArgs e)
+		{
+			if(tickcount >= 50)
+			{
+				tickcount = 0;
+
+				Cursor.Position = new Point(Cursor.Position.X + 5, Cursor.Position.Y);
+				Thread.Sleep(100);
+				Cursor.Position = new Point(Cursor.Position.X - 5, Cursor.Position.Y);
+				TopMost = true;
+			}
+
+			tickcount++;
+		}
+
+		public virtual void doBSOD()
         {
 
         }
@@ -73,12 +120,17 @@ namespace prankScreen
                 doBSOD();
             }
 
-            if (e.KeyCode == Keys.X && (e.Shift & e.Control))
-            {
-                UnhookWindowsHookEx(ptrHook);
-                close = true;
-                this.Close();
-            }
+			if (e.KeyCode == Keys.X && (e.Shift & e.Control))
+			{
+				if (stayawakeMode == 0)
+				{
+					SetThreadExecutionState(EXECUTION_STATE.ES_CONTINUOUS);
+				}
+
+				UnhookWindowsHookEx(ptrHook);
+				close = true;
+				this.Close();
+			}
         }
 
         private void f_ScreenForm_FormClosing(object sender, FormClosingEventArgs e)
