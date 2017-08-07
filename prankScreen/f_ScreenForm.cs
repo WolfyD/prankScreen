@@ -48,14 +48,14 @@ namespace prankScreen
             this.DoubleBuffered = true;
             this.ControlBox = false;
             this.WindowState = FormWindowState.Maximized;
-            //this.TopMost = true;
+            this.TopMost = true;
             this.Select();
             this.Focus();
 
             //TODO: Turn Back On
-            //ProcessModule objCurrentModule = Process.GetCurrentProcess().MainModule;
-            //objKeyboardProcess = new LowLevelKeyboardProc(captureKey);
-            //ptrHook = SetWindowsHookEx(13, objKeyboardProcess, GetModuleHandle(objCurrentModule.ModuleName), 0);
+            ProcessModule objCurrentModule = Process.GetCurrentProcess().MainModule;
+            objKeyboardProcess = new LowLevelKeyboardProc(captureKey);
+            ptrHook = SetWindowsHookEx(13, objKeyboardProcess, GetModuleHandle(objCurrentModule.ModuleName), 0);
         }
 
         public virtual void doBSOD()

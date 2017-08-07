@@ -52,6 +52,12 @@
     <Compile Include="f_ScreenForm.Designer.cs">
       <DependentUpon>f_ScreenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\f_secondaryScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\f_secondaryScreen.Designer.cs">
+      <DependentUpon>f_secondaryScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_Simple.cs" />
     <Compile Include="f_Simple.Designer.cs">
       <DependentUpon>f_Simple.cs</DependentUpon>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\f_Screen_Unresponsive.resx">
       <DependentUpon>f_Screen_Unresponsive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\f_secondaryScreen.resx">
+      <DependentUpon>f_secondaryScreen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

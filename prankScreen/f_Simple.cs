@@ -43,8 +43,11 @@ namespace prankScreen
 
             foreach (Screen s in secondaryScreens)
             {
-                f_ScreenForm fsf = new f_ScreenForm();
-
+                f_secondaryScreen fsf = new f_secondaryScreen();
+                fsf.bgColor = secondaryScreenColor == null ? Color.Black : secondaryScreenColor;
+                fsf.bounds = s.Bounds;
+                fsf.Left = s.Bounds.Left + 1;
+                fsf.Show();
             }
 
             switch (st)

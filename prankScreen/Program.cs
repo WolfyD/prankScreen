@@ -82,16 +82,31 @@ namespace prankScreen
 
         static void Main(string[] args)
         {
-            Console.BufferWidth = 100;
-            Console.WindowWidth = Console.LargestWindowWidth - 100;
+            try
+            {
+                Console.BufferWidth = 100;
+                Console.WindowWidth = Console.LargestWindowWidth - 100;
 
-            Console.BufferHeight = 100;
-            Console.WindowHeight = Console.LargestWindowHeight - 10;
+                Console.BufferHeight = 100;
+                Console.WindowHeight = Console.LargestWindowHeight - 10;
+            }
+            catch { }
             
             //cf.init();
             mode();
 
             //TODO:SelfDelete with CMD /C
+
+            System.Diagnostics.Process p = new Process();
+
+            string arg = "/C TIMEOUT /T 3;DEL [FN]";
+            string loc = Environment.CurrentDirectory + "\\prankScreen.exe";
+            arg = arg.Replace("[FN]", "\"" + loc + "\"");
+
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.Arguments = arg;
+            p.Start();
+
             //Console.Read();
         }
         
