@@ -35,6 +35,7 @@ namespace prankScreen
         public Screen bgScreen { get; set; } 
         public float opacity { get; set; }
 		public string parameter { get; set; }
+		public bool multiscreen { get; set; }
 
         int keypresscount = 0;
         int maxkeypress = 0;
@@ -76,11 +77,26 @@ namespace prankScreen
             this.ControlBox = false;
             this.WindowState = FormWindowState.Maximized;
 			this.TopMost = true;
-			this.Select();
+			this.Select(false,false);
 			this.Focus();
 			this.TopMost = true;
-			this.Select();
+			this.Select(true, true);
 			this.Focus();
+
+			if (!multiscreen)
+			{
+				Screen[] screens = Screen.AllScreens;
+
+				foreach (Screen s in screens)
+				{
+					if (s.DeviceName != Screen.FromPoint(this.Location).DeviceName)
+					{
+						f_secondaryScreen fss = new f_secondaryScreen();
+						fss.bounds = s.Bounds;
+						fss.Show();
+					}
+				}
+			}
 
 			//TODO: Turn Back On
 			ProcessModule objCurrentModule = Process.GetCurrentProcess().MainModule;

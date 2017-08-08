@@ -18,6 +18,7 @@ namespace prankScreen
 		public Color secondaryScreenColor { get; set; }
 		public SimpleScreenType st { get; set; }
 		public int func { get; set; }
+		f_ScreenForm fsf = new f_ScreenForm();
 
 		public string parameter { get; set; }
 
@@ -34,25 +35,8 @@ namespace prankScreen
         public void evalScreens()
         {
             MainScreen = screens[mainScreen];
-            foreach(Screen s in screens)
-            {
-                if(s != MainScreen)
-                {
-                    secondaryScreens.Add(s);
-                }
-            }
 
-			if (!multiScreen)
-			{
-				foreach (Screen s in secondaryScreens)
-				{
-					f_secondaryScreen fsf = new f_secondaryScreen();
-					fsf.bgColor = secondaryScreenColor == null ? Color.Black : secondaryScreenColor;
-					fsf.bounds = s.Bounds;
-					fsf.Left = s.Bounds.Left + 1;
-					fsf.Show();
-				}
-			}
+			
 
             switch (st)
             {
@@ -60,7 +44,7 @@ namespace prankScreen
                     prankScreen.Screens.f_Install_w95 fi95 = new Screens.f_Install_w95();
                     fi95.bounds = MainScreen.Bounds;
 					fi95.stayawakeMode = func;
-                    fi95.ShowDialog();
+					fi95.ShowDialog();
                     break;
 
                 case SimpleScreenType.Install_w98:
@@ -71,20 +55,23 @@ namespace prankScreen
                     break;
 
                 case SimpleScreenType.Screen_Unresponsive:
-                    foreach(Screen s in screens)
+					foreach (Screen s in Screen.AllScreens)
 					{
 						prankScreen.Screens.f_Screen_Unresponsive sunrep = new Screens.f_Screen_Unresponsive();
-						sunrep.bounds = s.Bounds;
+						sunrep.bounds = MainScreen.Bounds;
 						sunrep.stayawakeMode = func;
-						sunrep.ShowDialog();
+						showScreens(sunrep, s);
 					}
-                    break;
+					break;
 
                 case SimpleScreenType.Screen_Black:
-                    prankScreen.Screens.f_Screen_Black sb = new Screens.f_Screen_Black();
-                    sb.bounds = MainScreen.Bounds;
-					sb.stayawakeMode = func;
-					sb.ShowDialog();
+					foreach (Screen s in Screen.AllScreens)
+					{
+						prankScreen.Screens.f_Screen_Black sb = new Screens.f_Screen_Black();
+						sb.bounds = MainScreen.Bounds;
+						sb.stayawakeMode = func;
+						showScreens(sb, s);
+					}
                     break;
 
 				case SimpleScreenType.Firefox_Google:
@@ -105,17 +92,33 @@ namespace prankScreen
 
 
 				case SimpleScreenType.Screen_Pixelated:
-					foreach(Screen s in screens)
+					foreach (Screen s in Screen.AllScreens)
 					{
 						prankScreen.Screens.f_Screen_Blurry blur = new Screens.f_Screen_Blurry();
-						blur.bounds = s.Bounds;
+						blur.bounds = MainScreen.Bounds;
 						blur.stayawakeMode = func;
 						blur.param = parameter == "" ? null : parameter;
-						blur.ShowDialog();
+						showScreens(blur, s);
 					}
 					break;
 
             }
-        }
+
+
+			
+		}
+
+		public void showScreens(f_ScreenForm fsf, Screen s)
+		{
+			if (s != MainScreen)
+			{
+				fsf.Show();
+			}
+			else
+			{
+				fsf.ShowDialog();
+			}
+		}
+
     }
 }

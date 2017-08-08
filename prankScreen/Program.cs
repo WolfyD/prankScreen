@@ -160,6 +160,7 @@ namespace prankScreen
 						else
 						{ cf.func = 0; cf.echo("Awake mode set to forced Thread Execution State (0)"); }
 						mode = "";
+						Console.ReadKey();
 					}
 					else
 					{
