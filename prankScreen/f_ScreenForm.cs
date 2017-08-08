@@ -32,7 +32,7 @@ namespace prankScreen
 		
 
 		public Rectangle bounds { get; set; }
-        public Screen bgScreen { get; set; }
+        public Screen bgScreen { get; set; } 
         public float opacity { get; set; }
 		public string parameter { get; set; }
 
