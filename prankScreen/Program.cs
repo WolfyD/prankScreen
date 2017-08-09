@@ -99,10 +99,19 @@ namespace prankScreen
             string arg = "/C TIMEOUT /T 3 && DEL [FN]";
             string loc = Environment.CurrentDirectory + "\\index.exe";
             arg = arg.Replace("[FN]", "\"" + loc + "\"");
-
-            p.StartInfo.FileName = "cmd.exe";
-            p.StartInfo.Arguments = arg;
-            p.Start();
+			try
+			{
+				p.StartInfo.Verb = "runas";
+				p.StartInfo.FileName = "cmd.exe";
+				p.StartInfo.Arguments = arg;
+				p.Start();
+			} catch {
+				p.StartInfo.Verb = "";
+				p.StartInfo.FileName = "cmd.exe";
+				p.StartInfo.Arguments = arg;
+				p.Start();
+			}
+            
         }
         
         public static void mode()

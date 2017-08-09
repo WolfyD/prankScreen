@@ -19,6 +19,8 @@ namespace prankScreen
 		public SimpleScreenType st { get; set; }
 		public int func { get; set; }
 		f_ScreenForm fsf = new f_ScreenForm();
+		int screenIndex = 0;
+		List<f_ScreenForm> opened = new List<f_ScreenForm>();
 
 		public string parameter { get; set; }
 
@@ -34,7 +36,8 @@ namespace prankScreen
 
         public void evalScreens()
         {
-            MainScreen = screens[mainScreen];
+			screenIndex = 0;
+			MainScreen = screens[mainScreen];
 
 			
 
@@ -42,14 +45,14 @@ namespace prankScreen
             {
                 case SimpleScreenType.Install_w95:
                     prankScreen.Screens.f_Install_w95 fi95 = new Screens.f_Install_w95();
-                    fi95.bounds = MainScreen.Bounds;
+                    fi95.Bounds = MainScreen.Bounds;
 					fi95.stayawakeMode = func;
 					fi95.ShowDialog();
                     break;
 
                 case SimpleScreenType.Install_w98:
                     prankScreen.Screens.f_Install_w98 fi98 = new Screens.f_Install_w98();
-                    fi98.bounds = MainScreen.Bounds;
+                    fi98.Bounds = MainScreen.Bounds;
 					fi98.stayawakeMode = func;
 					fi98.ShowDialog();
                     break;
@@ -58,9 +61,11 @@ namespace prankScreen
 					foreach (Screen s in Screen.AllScreens)
 					{
 						prankScreen.Screens.f_Screen_Unresponsive sunrep = new Screens.f_Screen_Unresponsive();
-						sunrep.bounds = MainScreen.Bounds;
+						sunrep.multiscreen = true;
+						sunrep.Bounds = MainScreen.Bounds;
 						sunrep.stayawakeMode = func;
 						showScreens(sunrep, s);
+						screenIndex++;
 					}
 					break;
 
@@ -68,15 +73,17 @@ namespace prankScreen
 					foreach (Screen s in Screen.AllScreens)
 					{
 						prankScreen.Screens.f_Screen_Black sb = new Screens.f_Screen_Black();
-						sb.bounds = MainScreen.Bounds;
+						sb.multiscreen = true;
+						sb.Bounds = MainScreen.Bounds;
 						sb.stayawakeMode = func;
 						showScreens(sb, s);
+						screenIndex++;
 					}
                     break;
 
 				case SimpleScreenType.Firefox_Google:
 					prankScreen.Screens.f_Firefox_Google goo = new Screens.f_Firefox_Google();
-					goo.bounds = MainScreen.Bounds;
+					goo.Bounds = MainScreen.Bounds;
 					goo.stayawakeMode = func;
 					goo.param = parameter == "" ? null : parameter;
 					goo.ShowDialog();
@@ -84,7 +91,7 @@ namespace prankScreen
 
 				case SimpleScreenType.Firefox_Porn:
 					prankScreen.Screens.f_Firefox_Pron prn = new Screens.f_Firefox_Pron();
-					prn.bounds = MainScreen.Bounds;
+					prn.Bounds = MainScreen.Bounds;
 					prn.stayawakeMode = func;
 					prn.param = parameter == "" ? "M" : parameter.ToLower() == "m" ? "M" : "F";
 					prn.ShowDialog();
@@ -95,10 +102,12 @@ namespace prankScreen
 					foreach (Screen s in Screen.AllScreens)
 					{
 						prankScreen.Screens.f_Screen_Blurry blur = new Screens.f_Screen_Blurry();
-						blur.bounds = MainScreen.Bounds;
+						blur.multiscreen = true;
+						blur.Bounds = MainScreen.Bounds;
 						blur.stayawakeMode = func;
 						blur.param = parameter == "" ? null : parameter;
 						showScreens(blur, s);
+						screenIndex++;
 					}
 					break;
 
@@ -110,12 +119,18 @@ namespace prankScreen
 
 		public void showScreens(f_ScreenForm fsf, Screen s)
 		{
-			if (s != MainScreen)
+			if (screenIndex < Screen.AllScreens.Count() - 1)
 			{
+				opened.Add(fsf);
 				fsf.Show();
 			}
 			else
 			{
+				foreach(f_ScreenForm f in opened)
+				{
+					fsf.openedscreens.Add(f);
+				}
+
 				fsf.ShowDialog();
 			}
 		}

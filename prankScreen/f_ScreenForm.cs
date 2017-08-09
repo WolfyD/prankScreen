@@ -30,14 +30,15 @@ namespace prankScreen
 			// ES_USER_PRESENT = 0x00000004
 		}
 		
-
-		public Rectangle bounds { get; set; }
+		
         public Screen bgScreen { get; set; } 
         public float opacity { get; set; }
 		public string parameter { get; set; }
 		public bool multiscreen { get; set; }
+		public List<f_ScreenForm> openedscreens = new List<f_ScreenForm>();
+		public bool selfOpen { get; set; }
 
-        int keypresscount = 0;
+		int keypresscount = 0;
         int maxkeypress = 0;
 
         public bool close = false;
@@ -83,7 +84,7 @@ namespace prankScreen
 			this.Select(true, true);
 			this.Focus();
 
-			if (!multiscreen)
+			if (!multiscreen && !selfOpen)
 			{
 				Screen[] screens = Screen.AllScreens;
 
@@ -92,7 +93,10 @@ namespace prankScreen
 					if (s.DeviceName != Screen.FromPoint(this.Location).DeviceName)
 					{
 						f_secondaryScreen fss = new f_secondaryScreen();
-						fss.bounds = s.Bounds;
+						fss.Bounds = s.Bounds;
+						fss.selfOpen = true;
+						openedscreens.Add(fss);
+
 						fss.Show();
 					}
 				}
@@ -144,6 +148,15 @@ namespace prankScreen
 				}
 
 				UnhookWindowsHookEx(ptrHook);
+
+				if(openedscreens.Count > 0)
+				{
+					foreach(f_ScreenForm f in openedscreens)
+					{
+						f.Close();
+					}
+				}
+
 				close = true;
 				this.Close();
 			}
