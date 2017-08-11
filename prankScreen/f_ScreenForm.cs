@@ -153,7 +153,8 @@ namespace prankScreen
 				{
 					foreach(f_ScreenForm f in openedscreens)
 					{
-						f.Close();
+                        try { f.Close(); }
+                        catch { }
 					}
 				}
 

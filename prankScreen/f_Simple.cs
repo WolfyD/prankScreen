@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -103,7 +104,7 @@ namespace prankScreen
 					{
 						prankScreen.Screens.f_Screen_Blurry blur = new Screens.f_Screen_Blurry();
 						blur.multiscreen = true;
-						blur.Bounds = MainScreen.Bounds;
+						blur.Bounds = s.Bounds;
 						blur.stayawakeMode = func;
 						blur.param = parameter == "" ? null : parameter;
 						showScreens(blur, s);
@@ -117,12 +118,26 @@ namespace prankScreen
 			
 		}
 
+        f_ScreenForm ffsf = null;
+
+        public void startfsf()
+        {
+            opened.Add(ffsf);
+            ffsf.ShowDialog();
+        }
+
 		public void showScreens(f_ScreenForm fsf, Screen s)
 		{
+            fsf.StartPosition = FormStartPosition.Manual;
+            fsf.Left = s.WorkingArea.Left + 10;
+            fsf.Bounds = s.Bounds;
+
+
 			if (screenIndex < Screen.AllScreens.Count() - 1)
 			{
-				opened.Add(fsf);
-				fsf.Show();
+                ffsf = fsf;
+                Thread t = new Thread(new ThreadStart(startfsf));
+                t.Start();
 			}
 			else
 			{
